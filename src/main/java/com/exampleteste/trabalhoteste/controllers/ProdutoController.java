@@ -1,4 +1,4 @@
-package com.exampleteste.trabalhoteste.resources;
+package com.exampleteste.trabalhoteste.controllers;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ import com.exampleteste.trabalhoteste.services.ProdutoService;
 
 @RestController
 @RequestMapping(value = "/produtos")
-public class ProdutoResource {
+public class ProdutoController {
 
 	@Autowired
 	private ProdutoService service;
