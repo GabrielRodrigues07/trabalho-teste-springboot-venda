@@ -1,7 +1,7 @@
 package com.exampleteste.trabalhoteste.config;
 
-import java.text.SimpleDateFormat;
 import java.time.Instant;
+import java.util.Arrays;
 import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,6 @@ import com.exampleteste.trabalhoteste.repositories.ProdutoRepository;
 @Configuration
 @Profile("test")
 public class TestConfig implements CommandLineRunner {
-	public static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
 	@Autowired
 	private ProdutoRepository produtoRepository;
@@ -24,9 +23,9 @@ public class TestConfig implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		Locale.setDefault(Locale.US);
 
-		Produto prod = new Produto(null, "cadeira", 10.0, Instant.now());
+		Produto prod1 = new Produto(null, "cadeira", 10.00, Instant.now());
+		Produto prod2 = new Produto(null, "sofá", 1000.00, Instant.now());
 
-		produtoRepository.save(prod);
+		produtoRepository.saveAll(Arrays.asList(prod1, prod2));
 	}
-
 }
