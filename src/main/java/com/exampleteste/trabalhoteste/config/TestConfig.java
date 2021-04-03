@@ -23,7 +23,7 @@ public class TestConfig implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		Locale.setDefault(Locale.US);
 
-		Produto prod1 = new Produto(null, "cadeira", 10.00, Instant.now());
+		Produto prod1 = new Produto(null, "cadeira", 10.00, Instant.parse("2019-06-20T19:53:07Z"));
 		Produto prod2 = new Produto(null, "sofá", 1000.00, Instant.now());
 
 		produtoRepository.saveAll(Arrays.asList(prod1, prod2));

@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 public class Produto implements Serializable{
 	private static final long serialVersionUID = 1L;
@@ -17,13 +19,13 @@ public class Produto implements Serializable{
 	private Long id;
 	private String nome;
 	private Double valor;
-	private Instant insercao;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT")
+	private Instant insercao = Instant.now();
 	
 	public Produto() {
 	}
 
 	public Produto(Long id, String nome, Double valor, Instant insercao) {
-		super();
 		this.id = id;
 		this.nome = nome;
 		this.valor = valor;
