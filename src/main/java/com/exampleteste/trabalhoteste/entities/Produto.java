@@ -8,10 +8,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+import com.exampleteste.trabalhoteste.entities.dto.ProdutoDTO;
 
 @Entity
-public class Produto implements Serializable{
+public class Produto extends ProdutoDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
@@ -19,8 +19,7 @@ public class Produto implements Serializable{
 	private Long id;
 	private String nome;
 	private Double valor;
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT")
-	private Instant insercao = Instant.now();
+	private Instant insercao;
 	
 	public Produto() {
 	}

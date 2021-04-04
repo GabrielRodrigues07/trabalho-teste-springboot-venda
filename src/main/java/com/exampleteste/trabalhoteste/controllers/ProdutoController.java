@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.exampleteste.trabalhoteste.entities.Produto;
+import com.exampleteste.trabalhoteste.entities.dto.ProdutoDTO;
 import com.exampleteste.trabalhoteste.services.ProdutoService;
 
 @RestController
@@ -37,9 +38,9 @@ public class ProdutoController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<Produto> insert(@RequestBody Produto obj){
-		obj = service.insert(obj);
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
-		return ResponseEntity.created(uri).body(obj);
+	public ResponseEntity<Produto> insert(@RequestBody ProdutoDTO obj){
+		Produto produto = service.inserir(obj);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("{/id}").buildAndExpand(produto.getId()).toUri();
+        return ResponseEntity.created(uri).build();
 	}
 }

@@ -1,12 +1,9 @@
-package com.exampleteste.trabalhoteste.dto;
+package com.exampleteste.trabalhoteste.entities.dto;
 
 import java.io.Serializable;
-import java.time.Instant;
-
-import com.exampleteste.trabalhoteste.entities.Produto;
 
 
-public class ProdutoDTO extends Produto implements Serializable{
+public class ProdutoDTO implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
@@ -16,8 +13,10 @@ public class ProdutoDTO extends Produto implements Serializable{
 	private String nome;
 	private Double valor;
 
-	public ProdutoDTO(Long id, String nome, Double valor, Instant insercao) {
-		super(id, nome, valor, insercao);
+	public ProdutoDTO(String nome, Double valor) {
+		super();
+		this.nome = nome;
+		this.valor = valor;
 	}
 
 	public String getNome() {
