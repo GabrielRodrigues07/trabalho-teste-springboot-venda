@@ -17,7 +17,7 @@ public class ControllerExceptionHandler {
 
 	@ExceptionHandler(ProductNotFoundException.class)
 	public ResponseEntity<StandardError> resourceNotFound(ProductNotFoundException e, HttpServletRequest request) {
-		String error = "Product not found";
+		String error = "Produto não encontrado";
 		HttpStatus status = HttpStatus.NOT_FOUND;
 		StandardError err = new StandardError(Instant.now(), status.value(), error, e.getMessage(), request.getRequestURI());
 		return ResponseEntity.status(status).body(err);
