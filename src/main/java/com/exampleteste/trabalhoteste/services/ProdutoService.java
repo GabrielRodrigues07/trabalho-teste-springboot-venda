@@ -49,7 +49,7 @@ public class ProdutoService {
 		}
 	}
 	
-	public Produto update(Long id, Produto obj) {
+	public Produto update(Long id, ProdutoDTO obj) {
 		try {
 			Produto entity = repository.getOne(id);
 			updateData(entity, obj);
@@ -60,7 +60,7 @@ public class ProdutoService {
 		}
 	}
 
-	private void updateData(Produto entity, Produto obj) {
+	private void updateData(Produto entity, ProdutoDTO obj) {
 		entity.setNome(obj.getNome());
 		entity.setValor(obj.getValor());
 	}
