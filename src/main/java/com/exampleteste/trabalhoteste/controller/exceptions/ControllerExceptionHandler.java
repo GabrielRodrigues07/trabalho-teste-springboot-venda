@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import com.exampleteste.trabalhoteste.services.exceptions.DatabaseException;
-import com.exampleteste.trabalhoteste.services.exceptions.ProductNotFoundException;
+import com.exampleteste.trabalhoteste.services.exceptions.SaleNotFoundException;
 
 @ControllerAdvice
 public class ControllerExceptionHandler {
 
-	@ExceptionHandler(ProductNotFoundException.class)
-	public ResponseEntity<StandardError> resourceNotFound(ProductNotFoundException e, HttpServletRequest request) {
-		String error = "Produto não encontrado";
+	@ExceptionHandler(SaleNotFoundException.class)
+	public ResponseEntity<StandardError> resourceNotFound(SaleNotFoundException e, HttpServletRequest request) {
+		String error = "Venda não encontrada";
 		HttpStatus status = HttpStatus.NOT_FOUND;
 		StandardError err = new StandardError(Instant.now(), status.value(), error, e.getMessage(), request.getRequestURI());
 		return ResponseEntity.status(status).body(err);
